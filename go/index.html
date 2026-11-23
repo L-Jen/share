@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>權庭舒心購｜網購領回饋任意門</title>
+  <meta name="description" content="平常網購前多點這一步，1 秒直達 16 大常用好店與 1,600+ 夥伴商店，登入你自己的免費會員帳號賺現金回饋。">
+
+  <!-- Open Graph Meta Tags for LINE & Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="權庭舒心購">
+  <meta property="og:title" content="權庭舒心購｜網購領回饋任意門">
+  <meta property="og:description" content="平常網購前多點這一步，1 秒直達 16 大常用好店與 1,600+ 夥伴商店，登入你自己的免費會員帳號賺現金回饋。">
+  <meta property="og:image" content="https://l-jen.github.io/share/images/go-og.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:url" content="https://l-jen.github.io/share/go/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="權庭舒心購｜網購領回饋任意門">
+  <meta name="twitter:description" content="平常網購前多點這一步，1 秒直達 16 大常用好店與 1,600+ 夥伴商店，登入你自己的免費會員帳號賺現金回饋。">
+  <meta name="twitter:image" content="https://l-jen.github.io/share/images/go-og.jpg">
+
+  <!-- Home Screen Shortcut Icon (opens directly in Safari so login & tracking cookies stay intact) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://l-jen.github.io/share/images/go-icon-180.png">
+  <link rel="icon" type="image/png" href="https://l-jen.github.io/share/images/go-icon-180.png">
+
+  <style>
+    :root {
+      --navy-deep: #0b2545;
+      --navy-mid: #134074;
+      --emerald: #059669;
+      --emerald-bright: #10b981;
+      --emerald-soft: #ecfdf5;
+      --emerald-border: #a7f3d0;
+      --gold: #d97706;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 16px;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 14px 14px 44px;
+    }
+
+    /* LINE in-app browser warning banner */
+    .line-banner {
+      display: none;
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      color: #78350f;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.08);
+    }
+
+    .line-banner.is-visible {
+      display: block;
+    }
+
+    /* Hero Header */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 100%);
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 22px 18px 20px;
+      box-shadow: 0 12px 28px rgba(11, 37, 69, 0.18);
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.22);
+      border: 1px solid rgba(167, 243, 208, 0.55);
+      color: #a7f3d0;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 23px;
+      line-height: 1.3;
+      letter-spacing: -0.2px;
+    }
+
+    .hero-sub {
+      margin: 0 0 16px;
+      font-size: 14.5px;
+      color: #dbeafe;
+      line-height: 1.55;
+    }
+
+    /* Dual Search Box */
+    .search-box {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 10px;
+      backdrop-filter: blur(6px);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 16px;
+      color: var(--ink);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+      font-size: 14.5px;
+    }
+
+    .clear-btn {
+      display: none;
+      border: none;
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .clear-btn.is-visible {
+      display: inline-block;
+    }
+
+    .official-search-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      margin-top: 8px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: var(--emerald-bright);
+      color: #052e23;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.12s ease, background 0.15s ease;
+    }
+
+    .official-search-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* 4 Quick Capsules */
+    .quick-pills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .quick-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-align: center;
+      min-height: 44px;
+      transition: background 0.15s ease;
+    }
+
+    .quick-pill:hover,
+    .quick-pill:active {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* Category Filter Tabs */
+    .cat-bar-wrap {
+      margin: 4px 0 12px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 0 2px 10px;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .match-count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .cat-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .cat-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      flex: 0 0 auto;
+      border: 1.5px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 40px;
+      transition: all 0.15s ease;
+    }
+
+    .cat-pill.is-active {
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(11, 37, 69, 0.16);
+    }
+
+    /* 2-Column Mobile Store Grid */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .store-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 13px 13px;
+      text-decoration: none;
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      min-height: 132px;
+      transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .store-card:hover,
+    .store-card:active {
+      border-color: var(--emerald-bright);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(5, 150, 105, 0.12);
+    }
+
+    .store-card.is-hidden {
+      display: none;
+    }
+
+    .store-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .store-emoji {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .cashback-badge {
+      display: inline-block;
+      background: var(--emerald-soft);
+      border: 1px solid var(--emerald-border);
+      color: #065f46;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .store-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 4px;
+      line-height: 1.3;
+    }
+
+    .store-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+
+    .store-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 8px;
+      border-top: 1px dashed var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy-mid);
+    }
+
+    /* Empty search state */
+    .empty-state {
+      display: none;
+      background: #ffffff;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .empty-state.is-visible {
+      display: block;
+    }
+
+    .empty-state p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .empty-go-btn {
+      display: inline-block;
+      background: var(--navy-deep);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 11px 20px;
+      border-radius: 12px;
+    }
+
+    /* Info Panels */
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 16px;
+      margin-top: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h2 {
+      margin: 0 0 10px;
+      font-size: 16.5px;
+      color: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-list,
+    .tips-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 14.5px;
+    }
+
+    .guide-list li,
+    .tips-list li {
+      margin-bottom: 8px;
+    }
+
+    .guide-list li:last-child,
+    .tips-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .copy-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .copy-url-btn {
+      border: none;
+      background: var(--navy-deep);
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 11px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    .copy-url-btn:active {
+      transform: scale(0.98);
+    }
+
+    .copy-feedback {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--emerald);
+    }
+
+    .disclosure {
+      margin-top: 18px;
+      padding: 14px 12px;
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    @media (max-width: 370px) {
+      .store-grid {
+        grid-template-columns: 1fr;
+      }
+      .quick-pills {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- LINE In-App Browser Auto Banner -->
+    <div id="lineBanner" class="line-banner" role="alert">
+      💡 你現在在 LINE 裡面開網頁，建議點右下角選單改用「預設瀏覽器（Safari / Chrome）」開啟，登入才穩、也能加到手機桌面喔！
+    </div>
+
+    <!-- Hero + Search + Quick Links -->
+    <header class="hero">
+      <div class="hero-badge">權庭舒心購｜合作夥伴入口</div>
+      <h1>權庭舒心購｜網購領回饋任意門</h1>
+      <p class="hero-sub">平常網購前多點這一步，登入你自己的免費會員帳號就能賺現金回饋</p>
+
+      <div class="search-box">
+        <div class="search-row">
+          <input
+            id="storeSearch"
+            class="search-input"
+            type="search"
+            inputmode="search"
+            autocomplete="off"
+            placeholder="找商店？例如：訂房、書店、衛生紙、飛利浦..."
+            aria-label="搜尋夥伴商店"
+          >
+          <button id="clearSearchBtn" class="clear-btn" type="button">清除</button>
+        </div>
+        <a
+          id="officialSearchBtn"
+          class="official-search-btn"
+          href="https://www.markettaiwan.com.tw/pages/%E5%95%86%E5%BA%97%E5%90%8D%E7%A8%B1%E8%87%AAa%E8%87%B3z%E6%8E%92%E5%88%97?portal_id=TWBSP&credit_user=C1510387222"
+          target="_blank"
+          rel="noopener noreferrer"
+        >🔎 去官網搜全部 1,600+ 家商店 ➔</a>
+      </div>
+
+      <nav class="quick-pills" aria-label="常用快捷入口">
+        <a
+          class="quick-pill"
+          href="https://www.markettaiwan.com.tw/pages/%E5%95%86%E5%BA%97%E5%90%8D%E7%A8%B1%E8%87%AAa%E8%87%B3z%E6%8E%92%E5%88%97?portal_id=TWBSP&credit_user=C1510387222"
+          target="_blank"
+          rel="noopener noreferrer"
+        >🛍️ 全部 1,600+ 夥伴商店</a>
+        <a
+          class="quick-pill"
+          href="https://www.markettaiwan.com.tw/pages/%E9%87%8D%E9%BB%9E%E5%95%86%E5%BA%97?portal_id=TWBSP&credit_user=C1510387222"
+          target="_blank"
+          rel="noopener noreferrer"
+        >⭐ 官方重點商店</a>
+        <a
+          class="quick-pill"
+          href="https://www.markettaiwan.com.tw/pages/health-quiz?portal_id=TWBSP&credit_user=C1510387222"
+          target="_blank"
+          rel="noopener noreferrer"
+        >⚡ 60秒 AI 體質小測驗</a>
+        <a
+          class="quick-pill"
+          href="https://www.markettaiwan.com.tw/pages/shopbuddy?portal_id=TWBSP&credit_user=C1510387222"
+          target="_blank"
+          rel="noopener noreferrer"
+        >💻 電腦版自動提醒外掛</a>
+      </nav>
+    </header>
+
+    <!-- Category Filters -->
+    <section class="cat-bar-wrap" aria-label="精選常用好店">
+      <div class="section-head">
+        <h2 class="section-title">精選常用夥伴商店</h2>
+        <span id="matchCount" class="match-count">顯示 16 家</span>
+      </div>
+
+      <div class="cat-pills" role="tablist" aria-label="商店分類">
+        <button class="cat-pill is-active" type="button" data-cat="all">全部 (16)</button>
+        <button class="cat-pill" type="button" data-cat="daily">🛒 日用電商</button>
+        <button class="cat-pill" type="button" data-cat="travel">✈️ 旅遊訂房</button>
+        <button class="cat-pill" type="button" data-cat="books">📚 書店家電</button>
+        <button class="cat-pill" type="button" data-cat="food">🥗 美食居家</button>
+      </div>
+    </section>
+
+    <!-- 16 Verified Partner Stores -->
+    <main id="storeGrid" class="store-grid">
+      <!-- daily (4) -->
+      <a
+        class="store-card"
+        data-cat="daily"
+        data-keywords="萬家福線上購物 家樂福 量販 日用 採買 衛生紙 生鮮 飲料 清潔"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=289060&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🛒</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">萬家福線上購物</h3>
+          <p class="store-desc">家樂福系量販・日用採買</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="daily"
+        data-keywords="friDay購物 遠傳 3C 家電 日用品 免運 衛生紙 手機"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=247162&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">📱</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">friDay購物</h3>
+          <p class="store-desc">3C 家電・日用品免運</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="daily"
+        data-keywords="生活市集 衛生紙 民生消耗品 日用 團購 洗衣精 濕紙巾"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=269053&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🧻</span>
+            <span class="cashback-badge">約 3% 回饋*</span>
+          </div>
+          <h3 class="store-name">生活市集</h3>
+          <p class="store-desc">衛生紙・民生消耗品</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="daily"
+        data-keywords="松果購物 居家 收納 生活百貨 家具 寢具 日用"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=301820&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🏠</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">松果購物</h3>
+          <p class="store-desc">居家收納・生活百貨</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <!-- travel (4) -->
+      <a
+        class="store-card"
+        data-cat="travel"
+        data-keywords="Agoda 訂房 飯店 住宿 旅遊 出國 自由行 飯店"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=272505&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🏨</span>
+            <span class="cashback-badge">約 5% 回饋*</span>
+          </div>
+          <h3 class="store-name">Agoda</h3>
+          <p class="store-desc">國內外飯店・住宿訂房</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="travel"
+        data-keywords="Booking.com 訂房 飯店 民宿 自由行 旅遊 出國"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=293662&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">✈️</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">Booking.com</h3>
+          <p class="store-desc">全球飯店・自由行民宿</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="travel"
+        data-keywords="Hotels.com Taiwan 訂房 飯店 住宿 累積 旅遊"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=260746&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🛏️</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">Hotels.com Taiwan</h3>
+          <p class="store-desc">全球訂房・累積住宿</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="travel"
+        data-keywords="萬國通路 eminent 行李箱 旅遊 出國 登機箱"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=288208&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🧳</span>
+            <span class="cashback-badge">約 5% 回饋*</span>
+          </div>
+          <h3 class="store-name">萬國通路 eminent</h3>
+          <p class="store-desc">台灣品牌行李箱・旅遊配備</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <!-- books (4) -->
+      <a
+        class="store-card"
+        data-cat="books"
+        data-keywords="誠品線上 書店 書籍 文創 選物 買書 禮品"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=282122&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">📚</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">誠品線上</h3>
+          <p class="store-desc">書籍文創・質感選物</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="books"
+        data-keywords="金石堂網路書店 書店 暢銷書 參考書 文具 雜誌"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=287245&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">📖</span>
+            <span class="cashback-badge">約 2% 回饋*</span>
+          </div>
+          <h3 class="store-name">金石堂網路書店</h3>
+          <p class="store-desc">暢銷書・學習參考書</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="books"
+        data-keywords="TAAZE 讀冊生活 書店 新書 二手書 買書 雜誌"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=249797&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🔖</span>
+            <span class="cashback-badge">約 4% 回饋*</span>
+          </div>
+          <h3 class="store-name">TAAZE 讀冊生活</h3>
+          <p class="store-desc">新書・二手書線上買</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="books"
+        data-keywords="台灣飛利浦家電 飛利浦 Philips 氣炸鍋 電鬍刀 咖啡機 吹風機 小家電"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=297887&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">⚡</span>
+            <span class="cashback-badge">約 5% 回饋*</span>
+          </div>
+          <h3 class="store-name">台灣飛利浦家電</h3>
+          <p class="store-desc">廚房小家電・居家必備</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <!-- food (4) -->
+      <a
+        class="store-card"
+        data-cat="food"
+        data-keywords="36Life 鮮綠生活 生鮮 肉品 冷凍 海鮮 雞胸肉 牛排 白蝦"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=296729&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🥩</span>
+            <span class="cashback-badge">約 7% 回饋*</span>
+          </div>
+          <h3 class="store-name">36Life 鮮綠生活</h3>
+          <p class="store-desc">生鮮肉品・冷凍海鮮</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="food"
+        data-keywords="芝初 新鮮芝麻 高鈣 黑芝麻粉 養生 沖泡 早餐 芝麻醬"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=300602&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🥣</span>
+            <span class="cashback-badge">約 7% 回饋*</span>
+          </div>
+          <h3 class="store-name">芝初 新鮮芝麻</h3>
+          <p class="store-desc">高鈣黑芝麻粉・養生沖泡</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="food"
+        data-keywords="歐嘎家居 Hogar 質感居家 餐廚好物 鍋具 廚房"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=301889&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🍳</span>
+            <span class="cashback-badge">約 7% 回饋*</span>
+          </div>
+          <h3 class="store-name">歐嘎家居</h3>
+          <p class="store-desc">質感居家・餐廚好物</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+
+      <a
+        class="store-card"
+        data-cat="food"
+        data-keywords="聯華食品 E 購網 可樂果 堅果 萬歲牌 零食 元本山 官方店"
+        href="https://www.markettaiwan.com.tw/pages/store-interstitial?storeId=275566&portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <div class="store-top">
+            <span class="store-emoji">🥨</span>
+            <span class="cashback-badge">約 5% 回饋*</span>
+          </div>
+          <h3 class="store-name">聯華食品 E 購網</h3>
+          <p class="store-desc">可樂果・堅果零食官方店</p>
+        </div>
+        <span class="store-cta">點我前往領回饋 <span>➔</span></span>
+      </a>
+    </main>
+
+    <!-- Empty search fallback -->
+    <div id="emptyState" class="empty-state">
+      <p id="emptyText">精選清單裡還沒列出這家，直接到美安台灣官網搜尋 1,600+ 家夥伴商店！</p>
+      <a
+        id="emptyOfficialLink"
+        class="empty-go-btn"
+        href="https://www.markettaiwan.com.tw/pages/%E5%95%86%E5%BA%97%E5%90%8D%E7%A8%B1%E8%87%AAa%E8%87%B3z%E6%8E%92%E5%88%97?portal_id=TWBSP&credit_user=C1510387222"
+        target="_blank"
+        rel="noopener noreferrer"
+      >🔎 前往官網搜尋完整商店清單</a>
+    </div>
+
+    <!-- Add to Home Screen Guide -->
+    <section class="info-card">
+      <h2>📲 把這頁加到手機桌面（以後只要點 1 下）</h2>
+      <ol class="guide-list">
+        <li><strong>iPhone（Safari 瀏覽器）</strong>：點下方正中央「分享」圖示（方框朝上箭頭）➔ 往下滑點「加入主畫面」➔ 右上角按「新增」，桌面立刻多 1 顆圖示。</li>
+        <li><strong>Android（Chrome 瀏覽器）</strong>：點右上角「⋮」選單 ➔ 點「加到主畫面」➔ 按「新增」就完成。</li>
+      </ol>
+      <div class="copy-row">
+        <button id="copyUrlBtn" class="copy-url-btn" type="button">📋 複製本頁網址</button>
+        <span id="copyFeedback" class="copy-feedback" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- Cashback Tracking Tips -->
+    <section class="info-card">
+      <h2>💡 不漏回饋 3 秒小撇步</h2>
+      <ol class="tips-list">
+        <li>點進商店後會先到美安台灣官方跳轉頁，首次使用輸入自己 Email 免費註冊／登入，回饋直接累積到<strong>你自己的帳戶</strong>。</li>
+        <li>跳過去之後盡量<strong>在同一個瀏覽器完成加車與結帳</strong>，避免中途切換成該商店 App 造成追蹤中斷。</li>
+        <li>若手機有裝廣告封鎖器（例如 AdGuard），建議改用未開廣告阻擋的瀏覽器（如 Chrome）結帳最穩。</li>
+      </ol>
+    </section>
+
+    <!-- Transparent Disclosure Footer -->
+    <footer class="disclosure">
+      * 頁面標示之現金回饋比例係整理自美安台灣官網之參考值，實際回饋比例與規則一律以跳轉後官網即時顯示為準。本頁僅整理公開商店入口，完全不收集您的帳號或個資，隨時可移除桌面捷徑。
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var PORTAL_PARAMS = "portal_id=TWBSP&credit_user=C1510387222";
+      var STORE_DIR_BASE = "https://www.markettaiwan.com.tw/pages/%E5%95%86%E5%BA%97%E5%90%8D%E7%A8%B1%E8%87%AAa%E8%87%B3z%E6%8E%92%E5%88%97";
+      var PAGE_URL = "https://l-jen.github.io/share/go/";
+
+      // Detect LINE in-app browser
+      if (/Line\//i.test(navigator.userAgent || "")) {
+        var lineBanner = document.getElementById("lineBanner");
+        if (lineBanner) lineBanner.classList.add("is-visible");
+      }
+
+      var searchInput = document.getElementById("storeSearch");
+      var clearBtn = document.getElementById("clearSearchBtn");
+      var officialSearchBtn = document.getElementById("officialSearchBtn");
+      var emptyOfficialLink = document.getElementById("emptyOfficialLink");
+      var emptyState = document.getElementById("emptyState");
+      var emptyText = document.getElementById("emptyText");
+      var matchCount = document.getElementById("matchCount");
+      var catPills = Array.prototype.slice.call(document.querySelectorAll(".cat-pill"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".store-card"));
+
+      var activeCat = "all";
+
+      function buildOfficialDirUrl(keyword) {
+        var kw = (keyword || "").trim();
+        if (!kw) {
+          return STORE_DIR_BASE + "?" + PORTAL_PARAMS;
+        }
+        return STORE_DIR_BASE + "?q=" + encodeURIComponent(kw) + "&" + PORTAL_PARAMS;
+      }
+
+      function applyFilters() {
+        var q = (searchInput.value || "").trim().toLowerCase();
+        clearBtn.classList.toggle("is-visible", q.length > 0);
+
+        var dirUrl = buildOfficialDirUrl(searchInput.value);
+        officialSearchBtn.href = dirUrl;
+        emptyOfficialLink.href = dirUrl;
+
+        var visible = 0;
+        cards.forEach(function (card) {
+          var cat = card.getAttribute("data-cat") || "";
+          var hay = ((card.textContent || "") + " " + (card.getAttribute("data-keywords") || "")).toLowerCase();
+          var catOk = q.length > 0 || activeCat === "all" || cat === activeCat;
+          var queryOk = q.length === 0 || hay.indexOf(q) !== -1;
+          var show = catOk && queryOk;
+          card.classList.toggle("is-hidden", !show);
+          if (show) visible += 1;
+        });
+
+        matchCount.textContent = "顯示 " + visible + " 家";
+        if (visible === 0) {
+          emptyText.textContent = "精選清單裡找不到「" + (searchInput.value || "").trim() + "」，點下方直接去美安台灣官網搜尋 1,600+ 家夥伴商店！";
+          emptyState.classList.add("is-visible");
+        } else {
+          emptyState.classList.remove("is-visible");
+        }
+      }
+
+      catPills.forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          activeCat = pill.getAttribute("data-cat") || "all";
+          catPills.forEach(function (btn) {
+            btn.classList.toggle("is-active", btn === pill);
+          });
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener("input", applyFilters);
+
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          searchInput.blur();
+        }
+      });
+
+      clearBtn.addEventListener("click", function () {
+        searchInput.value = "";
+        applyFilters();
+        searchInput.focus();
+      });
+
+      // Copy page URL button
+      var copyBtn = document.getElementById("copyUrlBtn");
+      var copyFeedback = document.getElementById("copyFeedback");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+          function done(ok) {
+            copyFeedback.textContent = ok ? "✅ 已複製網址，貼到瀏覽器就能開" : "請長按網址列複製：" + PAGE_URL;
+            setTimeout(function () {
+              copyFeedback.textContent = "";
+            }, 3500);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(PAGE_URL).then(function () {
+              done(true);
+            }).catch(function () {
+              done(false);
+            });
+          } else {
+            var ta = document.createElement("textarea");
+            ta.value = PAGE_URL;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            var copied = false;
+            try {
+              copied = document.execCommand("copy");
+            } catch (err) {
+              copied = false;
+            }
+            document.body.removeChild(ta);
+            done(copied);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
